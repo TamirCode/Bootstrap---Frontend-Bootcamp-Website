@@ -1,0 +1,13 @@
+html {
+    scroll-behavior: smooth;
+  }
+  
+.custom-class-news-input {
+    max-width: 600px;
+}
+
+#map {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}

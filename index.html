@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet' />
+    <link rel="stylesheet" href="style.css">
+    <title>Frontend Bootcamp</title>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark py-3 fixed-top"> <!--navbar minimizes under LG, dark background, light text | fixed to top-->
+        <div class="container"> <!--to create the empty spaces on the left and right-->
+            <a href="#" class="navbar-brand">Frontend Bootcamp</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu"> <!--hamburger button | type: button doesnt do anything | target nav list-->
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navmenu"> <!--id needed for hamburger button to detect it-->
+                <ul class="navbar-nav ms-auto"> <!--ms-auto aligns the items to the right-->
+                    <li class="nav-item">
+                        <a href="#learn" class="nav-link">What you'll learn</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#questions" class="nav-link">Questions</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#instructors" class="nav-link">Instructors</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Showcase under NAVBAR -->
+    <section class="bg-dark text-light p-5 p-lg-0 pt-lg-5 text-center text-sm-start mt-5"> <!-- padding will be 5 under large and 0 above large but padding top 5 over large | text-sm-start will make text align to left side when screen is above small size | mt-5 means margin-top 5 units-->
+        <div class="container"> <!--to create the empty spaces on the left and right-->
+            <div class="d-sm-flex align-items-center justify-content-center"> <!-- Flex Box Container with 2 items (only flex above SM screen size) | centered-->
+                <div class="div">
+                    <h1>Become a <span class="span text-warning">Web Developer</span></h1> <!--text-warning class makes the color yellow for "Web Developer"-->
+                    <p class="lead my-4"> <!--class lead simply makes the text a little bigger | my means margin top and bottom (y-axis)-->
+                        We focus on teaching our students the fundamentals of the latest and greatest technologies to prepare them for their first dev role
+                    </p>
+                    <!-- Button that opens modal form-->
+                    <button class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#enrollModal">Start The Enrollment</button> <!--btn | btn-primary makes it blue | btn-lg makes it large | type="button" is meta-->
+                                        <!-- Modal -->
+                    <div class="modal fade text-dark" id="enrollModal" tabindex="-1" aria-labelledby="enrollModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                <h5 class="modal-title" id="enrollModalLabel">Modal title</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <!--the form -->
+                                    <p class="lead">Fill out this form and we will get back to you:</p>
+                                    <form>
+                                        <div class="mb-3">
+                                            <label for="first-name" class="col-form-label">First Name:</label>
+                                            <input type="text" class="form-control" id="first-name">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="last-name" class="col-form-label">Last Name:</label>
+                                            <input type="text" class="form-control" id="last-name">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="Email" class="col-form-label">Email:</label>
+                                            <input type="text" class="form-control" id="Email">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="Phone" class="col-form-label">Phone:</label>
+                                            <input type="text" class="form-control" id="Phone">
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary">Submit</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <img class="img-fluid w-50 d-none d-sm-block" src="img/showcase.svg" alt=""> <!--img-fluid makes image bound to the container | w-50 makes width half the size (50%)| d-none means display: none | d-sm-block display as block when screen size is small or above-->
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter + input submit-->
+    <section class="bg-primary text-light p-5">
+        <div class="container "> <!--put in container to line up everything (creates empty space on sides)-->
+            <div class="d-md-flex justify-content-between align-items-center"> <!-- flexbox above medium -->
+                <h3 class="mb-3 mb-md-0">Sign up for our newsletter</h3> <!--margin bottom 3 only bellow small screen-->
+                <div class="input-group custom-class-news-input"> <!--custom class makes it shorter width-->
+                    <input type="text" class="form-control" placeholder="Enter Email">
+                    <button class="btn btn-dark btn-lg" type="button">Button</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Boxes -->
+    <section class="p-5">
+        <div class="container">
+            <div class="row text-center g-4"> <!-- 3 even colums on medium screens and above | gap of 4 -->
+                <div class="col-md">
+                    <div class="card bg-dark text-light">
+                        <div class="card-body text-center">
+                            <div class="h1 mb-3"> <!-- makes the icon large -->
+                                <i class="bi bi-laptop"></i>
+                            </div>
+                            <h3 class="card-title mb-3">Virtual</h3>
+                            <p class="card-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Exercitationem quas sit necessitatibus iusto perferendis obcaecati!</p>
+                            <a href="#" class="btn btn-primary">Read More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="card bg-secondary text-light">
+                        <div class="card-body text-center">
+                            <div class="h1 mb-3"> <!-- makes the icon large -->
+                                <i class="bi bi-person-square"></i>
+                            </div>
+                            <h3 class="card-title mb-3">Hybrid</h3>
+                            <p class="card-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Exercitationem quas sit necessitatibus iusto perferendis obcaecati!</p>
+                            <a href="#" class="btn btn-dark">Read More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="card bg-dark text-light">
+                        <div class="card-body text-center">
+                            <div class="h1 mb-3"> <!-- makes the icon large -->
+                                <i class="bi bi-people"></i>
+                            </div>
+                            <h3 class="card-title mb-3">In Person</h3>
+                            <p class="card-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Exercitationem quas sit necessitatibus iusto perferendis obcaecati!</p>
+                            <a href="#" class="btn btn-primary">Read More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Learn Sections -->
+    <section id="learn" class="p-5">
+        <div class="container">
+            <div class="row align-items-center justify-content-between">
+                <div class="col-md">
+                    <img src="img/fundamentals.svg" class="img-fluid" alt="">
+                </div>
+                <div class="col-md p-5">
+                    <h2>Learn The Fundamentals!</h2>
+                    <p class="lead"> <!--lead makes it a little bigger ("lead" paragraph stands out more than other paragraphs)-->
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iusto vero temporibus dolore facere, atque nobis.
+                    </p>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repudiandae, odit temporibus molestiae consectetur sed deserunt ut quos distinctio excepturi ipsum ex quasi facilis quia doloremque ipsa, optio dicta tempora quas.
+                    </p>
+                    <a href="" class="btn btn-light mt-3">
+                        <i class="bi bi-chevron-right"></i> Read More
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="p-5 bg-dark text-light">
+        <div class="container">
+            <div class="row align-items-center justify-content-between">
+                <div class="col-md p-5">
+                    <h2>Learn React</h2>
+                    <p class="lead"> <!--lead makes it a little bigger ("lead" paragraph stands out more than other paragraphs)-->
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iusto vero temporibus dolore facere, atque nobis.
+                    </p>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repudiandae, odit temporibus molestiae consectetur sed deserunt ut quos distinctio excepturi ipsum ex quasi facilis quia doloremque ipsa, optio dicta tempora quas.
+                    </p>
+                    <a href="" class="btn btn-light mt-3">
+                        <i class="bi bi-chevron-right"></i> Read More
+                    </a>
+                </div>
+                <div class="col-md">
+                    <img src="img/react.svg" class="img-fluid" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Questions Accordion-->
+    <section id="questions" class="p-5">
+        <div class="container">
+            <h2 class="text-center mb-4">
+                Frequently Asked Questions
+            </h2>
+            <!-- straight from docs -->
+            <div class="accordion accordion-flush" id="accordion-questions">
+                <!-- Item 1 -->
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="flush-heading1">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse1" aria-expanded="false" aria-controls="flush-collapse1">
+                      Where is it located?
+                    </button>
+                  </h2>
+                  <div id="flush-collapse1" class="accordion-collapse collapse" aria-labelledby="flush-heading1" data-bs-parent="#accordion-questions">
+                    <div class="accordion-body">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, deleniti dolor excepturi ipsum debitis molestias praesentium voluptatum natus quaerat cumque inventore sapiente minus provident? Aliquam dolores consequatur adipisci officiis, officia nam vero delectus aliquid quas iusto ex molestiae? Fugiat quas dolorum, maiores nesciunt perferendis blanditiis error doloremque eligendi corrupti.</div>
+                  </div>
+                </div>
+                <!-- Item 2 -->
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="flush-heading2">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse2" aria-expanded="false" aria-controls="flush-collapse2">
+                      How much does it cost?
+                    </button>
+                  </h2>
+                  <div id="flush-collapse2" class="accordion-collapse collapse" aria-labelledby="flush-heading2" data-bs-parent="#accordion-questions">
+                    <div class="accordion-body">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla illum perspiciatis consectetur earum sapiente tempore, cumque praesentium reiciendis? Provident amet reprehenderit, saepe culpa aperiam explicabo sequi recusandae cum porro repellendus, ducimus in facere consequatur eveniet illo rem assumenda officia itaque facilis dolor officiis deleniti! Cum corporis voluptatibus consequuntur temporibus recusandae.</div>
+                  </div>
+                </div>
+                <!-- Item 3 -->
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="flush-heading3">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse3" aria-expanded="false" aria-controls="flush-collapse3">
+                      What are the requirements?
+                    </button>
+                  </h2>
+                  <div id="flush-collapse3" class="accordion-collapse collapse" aria-labelledby="flush-heading3" data-bs-parent="#accordion-questions">
+                    <div class="accordion-body">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Assumenda harum, officia id incidunt quas aliquid architecto ullam asperiores, debitis quos rem saepe pariatur ratione sint, cum error laboriosam repudiandae est ad quod ex? Quam ullam explicabo doloribus. Impedit excepturi quibusdam harum asperiores distinctio iste natus, unde, quaerat, quia error laborum.</div>
+                  </div>
+                </div>
+                <!-- Item 4 -->
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="flush-heading4">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse4" aria-expanded="false" aria-controls="flush-collapse4">
+                      How do I sign up?
+                    </button>
+                  </h2>
+                  <div id="flush-collapse4" class="accordion-collapse collapse" aria-labelledby="flush-heading4" data-bs-parent="#accordion-questions">
+                    <div class="accordion-body">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium repudiandae ut ea quidem, molestiae ab quae quia totam modi, quam odio illum iste iusto laudantium eum voluptatem maiores, aliquam alias dolores aspernatur architecto excepturi fuga. Ratione, voluptatibus beatae a praesentium tempore ad neque esse asperiores culpa cumque doloremque nulla iusto.</div>
+                  </div>
+                </div>
+                <!-- Item 5 -->
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="flush-heading5">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse5" aria-expanded="false" aria-controls="flush-collapse5">
+                      How long is the bootcamp?
+                    </button>
+                  </h2>
+                  <div id="flush-collapse5" class="accordion-collapse collapse" aria-labelledby="flush-heading5" data-bs-parent="#accordion-questions">
+                    <div class="accordion-body">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem accusamus nulla pariatur velit, facilis fuga iusto aliquid ipsa dolorem sint. Iste nulla voluptatem debitis minima nobis recusandae obcaecati quo deserunt nam exercitationem, necessitatibus modi alias a tempore odio nemo, omnis ducimus! Iste sint esse reprehenderit et blanditiis voluptatem numquam rerum.</div>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Instructors -->
+    <section id="instructors" class="p-5 bg-primary">
+        <div class="container">
+            <h2 class="text-center text-white">Our Instructors</h2>
+            <p class="lead text-center text-white mb-5">
+                All of our instructors have 5+ years working as web developers in the industry
+            </p>
+            <div class="row g-4">
+                <!-- Columns -->
+                <!-- On small stack, split in half on medium screens (6/12), on large split to quarters 3/12-->
+                <!-- Col 1 -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="card bg-light">
+                        <div class="card-body text-center">
+                            <img src="https://randomuser.me/api/portraits/men/11.jpg" class="rounded-circle mb-3" alt="">
+                            <h3 class="card-title mb-3">Robert Johnson </h3>
+                            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum, repellendus veniam architecto esse odio reiciendis.</p>
+                            <a href="#"><i class="bi bi-twitter text-dark mx-1"></i></a>
+                            <a href="#"><i class="bi bi-facebook text-dark mx-1"></i></a>
+                            <a href="#"><i class="bi bi-linkedin text-dark mx-1"></i></a>
+                            <a href="#"><i class="bi bi-instagram text-dark mx-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Col 2 -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="card bg-light">
+                        <div class="card-body text-center">
+                            <img src="https://randomuser.me/api/portraits/women/11.jpg" class="rounded-circle mb-3" alt="">
+                            <h3 class="card-title mb-3">Jane Doe</h3>
+                            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum, repellendus veniam architecto esse odio reiciendis.</p>
+                            <a href="#"><i class="bi bi-twitter text-dark mx-1"></i></a>
+                            <a href="#"><i class="bi bi-facebook text-dark mx-1"></i></a>
+                            <a href="#"><i class="bi bi-linkedin text-dark mx-1"></i></a>
+                            <a href="#"><i class="bi bi-instagram text-dark mx-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Col 3 -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="card bg-light">
+                        <div class="card-body text-center">
+                            <img src="https://randomuser.me/api/portraits/men/12.jpg" class="rounded-circle mb-3" alt="">
+                            <h3 class="card-title mb-3">Steve Smith</h3>
+                            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum, repellendus veniam architecto esse odio reiciendis.</p>
+                            <a href="#"><i class="bi bi-twitter text-dark mx-1"></i></a>
+                            <a href="#"><i class="bi bi-facebook text-dark mx-1"></i></a>
+                            <a href="#"><i class="bi bi-linkedin text-dark mx-1"></i></a>
+                            <a href="#"><i class="bi bi-instagram text-dark mx-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Col 4 -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="card bg-light">
+                        <div class="card-body text-center">
+                            <img src="https://randomuser.me/api/portraits/women/12.jpg" class="rounded-circle mb-3" alt="">
+                            <h3 class="card-title mb-3">Sara Miller</h3>
+                            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum, repellendus veniam architecto esse odio reiciendis.</p>
+                            <a href="#"><i class="bi bi-twitter text-dark mx-1"></i></a>
+                            <a href="#"><i class="bi bi-facebook text-dark mx-1"></i></a>
+                            <a href="#"><i class="bi bi-linkedin text-dark mx-1"></i></a>
+                            <a href="#"><i class="bi bi-instagram text-dark mx-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact and Map-->
+    <section class="p-5">
+        <div class="container">
+            <div class="row g-4">
+                <!-- Contact section -->
+                <div class="col-md">
+                    <h2 class="text-center mb-4">Contact Info</h2>
+                    <ul class="list-group list-group-flush lead">
+                        <li class="list-group-item">
+                            <span class="fw-bold">Main Location:</span> 50 Main St. Boston MA
+                        </li>
+                        <li class="list-group-item">
+                            <span class="fw-bold">Enrollment Phone:</span> (333) 456-789
+                        </li>
+                        <li class="list-group-item">
+                            <span class="fw-bold">Student Phone:</span> (123) 456-789
+                        </li>
+                        <li class="list-group-item">
+                            <span class="fw-bold">Enrollment Email:</span> contact@frontend.com
+                        </li>
+                        <li class="list-group-item">
+                            <span class="fw-bold">Student Email:</span> student@frontend.com
+                        </li>
+                    </ul>
+                </div>
+                <!-- Map -->
+                <div class="col-md">
+                    <div id="map"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="bg-dark p-5 text-white text-center position-relative">
+        <span>Copyright &copy; 2021 Frontend Bootcamp</span> <!-- to make bigger, add class of "lead"-->
+        <a href="#" class="position-absolute bottom-0 end-0 p-5">
+            <i class="bi bi-arrow-up-circle h1"></i> <!-- to make icon bigger simply add h1 class -->
+        </a>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js'></script>
+    <script>
+        // from mapbox.com
+        mapboxgl.accessToken = 'pk.eyJ1IjoidHN0cyIsImEiOiJja3VscWR3bXEwNzc5MnZwMXYxNW5jemp5In0.IsQfCnCDx5kq45hi6ryR1g';
+        var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v11',
+        // I added
+        center: [-71.060982, 42.35725],
+        zoom:18,
+        });
+    </script>
+</body>
+</html>
